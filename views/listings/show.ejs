@@ -49,13 +49,16 @@
                 <button class="btn btn-outline-dark">Submit</button>
             </form>
             <hr/>
-            <h4>All Reviews</h4>
-            <!-- <p><%= listing.reviews %></p> -->
-            <ul>
+            <p><b>All Reviews</b></p>
+
+            
                 <% for(review of listing.reviews){ %>
+                    <div class="card">
+                        
+                    </div>
                     <li><%= review.comment %>,<%= review.rating %> stars</li>
                     <% } %>
-            </ul>
+            
         </div>
 
 
