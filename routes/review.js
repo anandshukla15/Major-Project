@@ -48,7 +48,8 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
   
     // Case 5: Saving the updated listing to the database
     try {
-      await listing.save(); // Saving the updated listing with the new review
+      await listing.save();
+       // Saving the updated listing with the new review
     } catch (err) {
       // Handle errors that occur while saving the listing
       console.error("Error saving listing:", err);
@@ -58,6 +59,7 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
     }
   
     // Case 6: Success - Redirect to the listing's detail page
+    req.flash("success","new review created");
     res.redirect(`/listings/${listing._id}`);
   }));
   
@@ -68,6 +70,7 @@ router.post("/", validateReview, wrapAsync(async (req, res) => {
   
   await Listing.findByIdAndUpdate(id,{$pull:{reviews: reviewId}});
   await Review.findByIdAndDelete(reviewId);
+  req.flash("success"," Review deleted");
   res.redirect(`/listings/${id}`);
   }));
 
