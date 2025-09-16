@@ -40,6 +40,9 @@ main()
 // app.get("/",(req,res)=>{
 //     res.send("hi ,i am robot");
 // });
+app.get("/", (req, res) => {
+  res.redirect("/login");
+});
 
 
 const sessionOptions={
