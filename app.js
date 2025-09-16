@@ -37,9 +37,9 @@ main()
   app.engine('ejs',ejsMate);
   app.use(express.static(path.join(__dirname,"/public")));
 
-app.get("/",(req,res)=>{
-    res.send("hi ,i am robot");
-});
+// app.get("/",(req,res)=>{
+//     res.send("hi ,i am robot");
+// });
 
 
 const sessionOptions={
@@ -53,9 +53,9 @@ const sessionOptions={
   },
 };
 
-app.get("/",(req,res)=>{
-  res.send("i am rbot");
-})
+// app.get("/",(req,res)=>{
+//   res.send("i am rbot");
+// })
 
  app.use(session(sessionOptions));
  app.use(flash());
